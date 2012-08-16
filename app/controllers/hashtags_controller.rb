@@ -10,4 +10,10 @@ class HashtagsController < ApplicationController
     end
 
   end
+
+  def index
+    @user = current_user
+    @hashtag = Hashtag.find_by_text(params[:hashtag])
+    @tweets = @hashtag.tweets
+  end
 end

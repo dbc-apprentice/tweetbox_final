@@ -29,7 +29,7 @@
       - @hashtags.each do |hashtag, num|
         %br
         .kbutton
-          = link_to "\##{hashtag.upcase} (#{num})", 'http://www.google.com' #thetweetbox/username/tag
+          = link_to "\##{hashtag.upcase} (#{num})", "/#{@user.twitter_name}/#{hashtag}"
     .seven.columns
       #container.showpage
         - @tweets.each do |tweet|

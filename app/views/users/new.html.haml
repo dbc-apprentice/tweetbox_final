@@ -14,7 +14,7 @@
     -unless hashtag.text.nil?
       .box
         .label
-          ="\##{hashtag.text}"
+          = link_to "\##{hashtag.text}", hashtags_path(hashtag.text)
         .photos
           -user_images = []
           -hashtag.tweets.each do |tweet|

@@ -1,0 +1,37 @@
+.body
+  .header
+    .sidebar
+      .twitter_handle
+        ="@" + @user.twitter_name + "'s"
+      .inner_header
+        = "tweetbox"
+      .welcome
+        - if current_user
+          = "Welcome #{current_user.twitter_name}!"
+        -else
+          = link_to "Sign In With Twitter", "/auth/twitter"
+      .logo_space
+        %img{:src => "http://i.imgur.com/SW2G8.png"}
+  .river
+    .river_left
+      .photo
+        = image_tag @user.image_url
+        = image_tag @user.image_url
+        = image_tag @user.image_url
+        = image_tag @user.image_url
+      - user_tweets = []
+      - user_urls = []
+      - @hashtags.each do |hashtag, num|
+        %br
+        .kbutton
+          = link_to "\##{hashtag.upcase} (#{num})", 'http://www.google.com' #thetweetbox/username/tag
+    .river_right
+      #container
+        - @tweets.each do |tweet|
+          .box
+            .tweets.clearfix
+              = link_to CGI.unescape(tweet.text), tweet.links.first.url
+
+%nav#page-nav
+  %a{href: "/#{@user.twitter_name}?page=2"}
+

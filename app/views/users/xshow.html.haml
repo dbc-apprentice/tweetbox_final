@@ -1,0 +1,92 @@
+-# %link{:href => "http://feeds.feedburner.com/dcurtis", :rel => "alternate", :type => "application/rss+xml"}/
+-# %link{:href => "https://d1yg14i6wd46hx.cloudfront.net/cargo/build.blog-cc3fd3e4c1dbef45feb38a03000667e9.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+%link{:href => "http://fonts.googleapis.com/css?family=Source+Sans+Pro", :rel => "stylesheet", :type => "text/css"}
+%body
+  %header#sidebar
+    .logo
+    .clearfix
+      %a{:href => "http://thetweetbox.com"} the tweetbox
+    %ul#user_meta
+      %li
+        %h1#site_name
+          %a{:href => "http://twitter.com/the_tweetbox"} the tweetbox
+      %li
+        %h1.sidebar_buttons
+          %a{:href => "http://www.tweetbox.com"} tweet INSIDE the box
+      %li.tagline
+        %h2#tagline
+          .photo
+            = image_tag @user.image_url
+          .welcome
+            - if current_user
+              = "Welcome #{current_user.twitter_name}!"
+            -else
+              = link_to "Sign In With Twitter", "/auth/twitter"
+      %li.sidebar_buttons
+        %a{:href => "http://feeds.feedburner.com/dcurtis"}
+          my box
+      %li.sidebar_buttons
+        %a{:href => "http://thetweetbox.com/kendraosburn"}
+          the big box
+      %li.sidebar_buttons
+        %a{:href => "http://thetweetbox.com/kendraosburn/tags"}
+          \#tags
+      %li.sidebar_buttons
+        %a{:href => "http://thetweetbox.com/kendraosburn/urls"}
+          urls
+    %aside#svbtle_linkback
+      %a{:href => "https://svbtle.com"}
+        %span.logo_square>
+          %span.logo_circle  
+        \ 
+        %span.svbtle Svbtle
+  %section#river
+    / TAGS SIDEBAR
+    %section#river_left
+      %article.post
+        %h2
+          YO. Imma gonna be a TAG, SON.
+        %p blah blah blah something about tags maybe (just wanted the option)
+        %blockquote
+          Things in this little HTML tag will have this awesome blue thing on the side
+        %h2
+          YO. Imma gonna be a TAG, SON.
+        %p blah blah blah something about tags maybe (just wanted the option)
+        %blockquote
+          Things in this little HTML tag will have this awesome blue thing on the side
+        %h2
+          YO. Imma gonna be a TAG, SON.
+        %p blah blah blah something about tags maybe (just wanted the option)
+        %blockquote
+          Things in this little HTML tag will have this awesome blue thing on the side
+    %section#river_right
+      %header
+        .twitter_handle
+          ="@" + @user.twitter_name + "'s"
+        .inner_header
+          = "tweetbox"
+      %article.post
+        %h2
+          %a.title{:href => "http://www.thetweetbox.com/kendraosburn/cat"}> LINK? TAGS?
+          <a href="/dear-marissa" class="anchor"
+        %p HERE WE MIGHT PUT OUR TWEETS?
+        %blockquote
+          OR MAYBE HERE?
+        %p maybe the url could go here?
+      %article.post
+        %h2
+          %a.title{:href => "http://www.thetweetbox.com/kendraosburn/cat"}> LINK? TAGS?
+          <a href="/dear-marissa" class="anchor"
+        %p HERE WE MIGHT PUT OUR TWEETS?
+        %blockquote
+          OR MAYBE HERE?
+        %p maybe the url could go here?
+      / BOTTOM NAV PAGINATION
+      %nav.pagination
+        DAVID'S PAGINATION WILL GO HERE!!! --->
+        %span.page.current 1
+        %span.page
+          %a{:href => "/page/2", :rel => "next"} 2
+        %span.page.gap
+        %span.next
+          %a{:href => "/page/2", :rel => "next"} Continue   →

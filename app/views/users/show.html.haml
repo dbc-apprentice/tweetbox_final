@@ -5,18 +5,19 @@
       .logo_space
         = link_to image_tag("tweetboxlogo.png", :width => "200"), root_path
       .sidebar_header
-      = link_to "THE TWEETBOX", root_path
-      = "tweetbox"
-      - if current_user
-        = "Welcome #{current_user.twitter_name}!"
-      -else
-        = link_to "Sign In With Twitter", "/auth/twitter"
-  .nine.columns
-    .twitter_handle
-      ="@" + @user.twitter_name.upcase + "'s"
-    .main_header
-      = "tweetbox"
-
+        = link_to "THE TWEETBOX", root_path
+        %br
+        - if current_user
+          = "Welcome #{current_user.twitter_name}!"
+        -else
+          = link_to "Sign In With Twitter", "/auth/twitter"
+  .row
+    .nine.columns
+      .twitter_handle
+        ="@" + @user.twitter_name.upcase + "'s"
+      .main_header
+        = "tweetbox"
+  .row
     .two.columns
       .photo
         = image_tag @user.image_url

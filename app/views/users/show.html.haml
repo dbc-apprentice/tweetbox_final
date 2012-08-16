@@ -2,9 +2,9 @@
 .body
   .sidebar
     .logo_space
-      %img{:src => "http://i.imgur.com/SW2G8.png", :width => "200"}
+      = link_to image_tag("tweetboxlogo.png", :width => "200"), root_path
     .sidebar_header
-      = "THE TWEETBOX"
+      = link_to "THE TWEETBOX", root_path
     -# .inner_header
       = "tweetbox"
     -# .welcome
@@ -30,12 +30,11 @@
         .kbutton
           = link_to "\##{hashtag.upcase} (#{num})", 'http://www.google.com' #thetweetbox/username/tag
     .river_right
-      #container
+      #container.showpage
         - @tweets.each do |tweet|
           .box
             .tweets.clearfix
               = link_to CGI.unescape(tweet.text), tweet.links.first.url
-
 %nav#page-nav
   %a{href: "/#{@user.twitter_name}?page=2"}
 

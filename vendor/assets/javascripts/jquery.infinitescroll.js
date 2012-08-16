@@ -63,7 +63,7 @@
 
     $.infinitescroll.prototype = {
 
-        /*	
+        /*
             ----------------------------
             Private methods
             ----------------------------
@@ -131,10 +131,10 @@
             opts.loading.selector = opts.loading.selector || opts.contentSelector;
 
             // Define loading.msg
-            opts.loading.msg = opts.loading.msg || $('<div id="infscr-loading"><img alt="Loading..." src="' + opts.loading.img + '" /><div>' + opts.loading.msgText + '</div></div>');
+            opts.loading.msg = opts.loading.msg || $('<div id="infscr-loading"><div>' + '</div></div>');
 
             // Preload loading.img
-            (new Image()).src = opts.loading.img;
+            // (new Image()).src = opts.loading.img;
 
             // distance from nav links to bottom
             // computed as: height of the document + top offset of container - top offset of nav link
@@ -200,7 +200,7 @@
             } else if (path.match(/^(.*?)\b2\b(.*?$)/)) {
                 path = path.match(/^(.*?)\b2\b(.*?$)/).slice(1);
 
-                // if there is any 2 in the url at all.    
+                // if there is any 2 in the url at all.
             } else if (path.match(/^(.*?)2(.*?$)/)) {
 
                 // page= is used in django:
@@ -420,14 +420,14 @@
             }
 
             opts.loading.msg
-            .find('img')
+              // .find('img')
             .hide()
             .parent()
             .find('div').html(opts.loading.finishedMsg).animate({ opacity: 1 }, 2000, function () {
                 $(this).parent().fadeOut('normal');
             });
 
-            // user provided callback when done    
+            // user provided callback when done
             opts.errorCallback.call($(opts.contentSelector)[0],'done');
 
         },
@@ -446,7 +446,7 @@
 
         },
 
-        /*	
+        /*
             ----------------------------
             Public methods
             ----------------------------
@@ -517,7 +517,7 @@
                             url: desturl,
                             dataType: opts.dataType,
                             complete: function infscr_ajax_callback(jqXHR, textStatus) {
-                                condition = (typeof (jqXHR.isResolved) !== 'undefined') ? (jqXHR.isResolved()) : (textStatus === "success" || textStatus === "notmodified");
+                                condition = (typeof (jqXHR.isResolved) !== '') ? (jqXHR.isResolved()) : (textStatus === "success" || textStatus === "notmodified");
                                 (condition) ? instance._loadcallback(box, jqXHR.responseText) : instance._error('end');
                             }
                         });
@@ -530,9 +530,9 @@
                             type: 'GET',
                             url: desturl,
                             success: function(data, textStatus, jqXHR) {
-                                condition = (typeof (jqXHR.isResolved) !== 'undefined') ? (jqXHR.isResolved()) : (textStatus === "success" || textStatus === "notmodified");
+                                condition = (typeof (jqXHR.isResolved) !== '') ? (jqXHR.isResolved()) : (textStatus === "success" || textStatus === "notmodified");
                                 if(opts.appendCallback) {
-                                    // if appendCallback is true, you must defined template in options. 
+                                    // if appendCallback is true, you must defined template in options.
                                     // note that data passed into _loadcallback is already an html (after processed in opts.template(data)).
                                     if(opts.template != undefined) {
                                         var theData = opts.template(data);
@@ -617,7 +617,7 @@
     }
 
 
-    /*	
+    /*
         ----------------------------
         Infinite Scroll function
         ----------------------------
@@ -631,7 +631,7 @@
         - https://github.com/jsor/jcarousel/blob/master/lib/jquery.jcarousel.js
 
         Masonry
-        - https://github.com/desandro/masonry/blob/master/jquery.masonry.js		
+        - https://github.com/desandro/masonry/blob/master/jquery.masonry.js
 
 */
 
@@ -642,7 +642,7 @@
 
         switch (thisCall) {
 
-            // method 
+            // method
             case 'string':
 
                 var args = Array.prototype.slice.call(arguments, 1);
@@ -668,7 +668,7 @@
 
             break;
 
-            // creation 
+            // creation
             case 'object':
 
                 this.each(function () {
@@ -704,7 +704,7 @@
 
 
 
-    /* 
+    /*
      * smartscroll: debounced scroll event for jQuery *
      * https://github.com/lukeshumard/smartscroll
      * Based on smartresize by @louis_remi: https://github.com/lrbabe/jquery.smartresize.js *

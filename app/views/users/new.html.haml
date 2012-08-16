@@ -8,7 +8,8 @@
   .five.columns.end
     %h1 the tweetbox
     %h4 tweet inside the box
-#container
+
+#container.newpage
   - @hashtags.each do |hashtag|
     -unless hashtag.text.nil?
       .box
@@ -19,7 +20,7 @@
           -hashtag.tweets.each do |tweet|
             -unless user_images.include?(tweet.user.image_url)
               -user_images << tweet.user.image_url
-              =image_tag tweet.user.image_url
-  
+              = link_to image_tag(tweet.user.image_url), user_path(tweet.user.twitter_name)
+
 %nav#page-nav
   %a{href: '/users/new?page=2'}

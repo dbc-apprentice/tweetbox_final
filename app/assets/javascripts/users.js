@@ -9,9 +9,9 @@
 //     //         animate      : true,
 //     //         debug        : true
 //     //     });
-// 
+//
 // });
-// 
+//
 // $(function(){
 //     $(".tweets a").each(function() {
 //         var contents = $(this).html();
@@ -20,30 +20,31 @@
 // });
 
 $(function(){
+    //new page
   var $container = $('#container');
+
   $container.imagesLoaded(function(){
       $container.masonry({
          itemSelector: '.box',
          columnWidth: 100
        });
      });
-  
+
   $container.masonry({
-  //    // options...
        itemSelector : '.box',
-  //    // columnWidth: 300,
       isAnimated: true
    });
-  
+
   $container.infinitescroll(
     {
-      navSelector  : '#page-nav',    // selector for the paged navigation 
+      navSelector  : '#page-nav',    // selector for the paged navigation
       nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
       itemSelector : '.box',     // selector for all items you'll retrieve
       animate      : true,
-      debug        : true 
-    }, 
-  
+      debug        : true,
+      loadingText  : "loading..."
+    },
+
     function( newElements ) {
       var $newElems = $( newElements ).css({ opacity: 0 });
       $newElems.animate({ opacity: 1 });
@@ -51,9 +52,43 @@ $(function(){
     }
   );
 
-	    $(".tweets a").each(function() {
-	        var contents = $(this).html();
-	        $(this).html(contents.replace(/\#([^\s]*)/g, "<span class=\"label\">#$1</span>"));
-	    });
-  
+  //   //show page
+  //   var $container = $('#new #container');
+  // // $container.imagesLoaded(function(){
+  // //     $container.masonry({
+  // //        itemSelector: '.box',
+  // //        columnWidth: 100
+  // //      });
+  // //    });
+  //
+  // $container.masonry({
+  // //    // options...
+  //      itemSelector : '#show .box',
+  // //    // columnWidth: 300,
+  //     isAnimated: true
+  //  });
+  //
+  // $container.infinitescroll(
+  //   {
+  //     navSelector  : '#page-nav',    // selector for the paged navigation
+  //     nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
+  //     itemSelector : '#show .box',     // selector for all items you'll retrieve
+  //     animate      : true,
+  //     debug        : true,
+  //     loadingText  : "loading..."
+  //   },
+  //
+  //   function( newElements ) {
+  //     var $newElems = $( newElements ).css({ opacity: 0 });
+  //     $newElems.animate({ opacity: 1 });
+  //     $container.masonry( 'appended', $newElems, true );
+  //   }
+  // );
+  //
+  //    $(".tweets a").each(function() {
+  //        var contents = $(this).html();
+  //        $(this).html(contents.replace(/\#([^\s]*)/g, "<span class=\"label\">#$1</span>"));
+  //    });
+
+
 });

@@ -1,23 +1,23 @@
 %link{:href => "http://fonts.googleapis.com/css?family=Source+Sans+Pro", :rel => "stylesheet", :type => "text/css"}
 .body
-  .sidebar
-    .logo_space
-      = link_to image_tag("tweetboxlogo.png", :width => "200"), root_path
-    .sidebar_header
+  .three.columns
+    .sidebar
+      .logo_space
+        = link_to image_tag("tweetboxlogo.png", :width => "200"), root_path
+      .sidebar_header
       = link_to "THE TWEETBOX", root_path
-    -# .inner_header
       = "tweetbox"
-    -# .welcome
       - if current_user
         = "Welcome #{current_user.twitter_name}!"
       -else
         = link_to "Sign In With Twitter", "/auth/twitter"
-  .river
+  .nine.columns
     .twitter_handle
       ="@" + @user.twitter_name.upcase + "'s"
     .main_header
       = "tweetbox"
-    .river_left
+
+    .two.columns
       .photo
         = image_tag @user.image_url
         = image_tag @user.image_url
@@ -29,7 +29,7 @@
         %br
         .kbutton
           = link_to "\##{hashtag.upcase} (#{num})", 'http://www.google.com' #thetweetbox/username/tag
-    .river_right
+    .seven.columns
       #container.showpage
         - @tweets.each do |tweet|
           .box

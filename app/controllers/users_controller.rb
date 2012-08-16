@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     # @hashtags = Hashtag.all(:order => "RANDOM()")
-    @hashtags = Hashtag.order("RANDOM()").scoped.page(params[:page]).per(30)# (:order => "RANDOM()")
+    @hashtags = Hashtag.order("RANDOM()").scoped.page(params[:page]).per(15)# (:order => "RANDOM()")
   end
 
   def show

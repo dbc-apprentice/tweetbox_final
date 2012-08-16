@@ -1,13 +1,13 @@
-- if current_user
-  = "Welcome #{current_user.twitter_name}!"
--else
-  = link_to "Sign In With Twitter", "/auth/twitter"
 .row
   .three.columns
     = image_tag "tweetboxlogo.png"
   .five.columns.end
     %h1 the tweetbox
     %h4 tweet inside the box
+    - if current_user
+      = "Welcome #{current_user.twitter_name}!"
+    -else
+      = link_to image_tag("twitter_signin.png"), "/auth/twitter"
 
 #container.newpage
   - @hashtags.each do |hashtag|

@@ -12,4 +12,5 @@ class Hashtag < ActiveRecord::Base
   attr_accessible :text
   has_and_belongs_to_many :tweets
   validates_uniqueness_of :text
+  has_many :users, :through => :tweets
 end

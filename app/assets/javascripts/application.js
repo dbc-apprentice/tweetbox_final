@@ -17,3 +17,42 @@
 //= require foundation
 //= require foundation/app
 //= require_tree .
+
+
+$(function(){
+
+  var $container = $('#container');
+
+  $container.imagesLoaded(function(){
+      $container.masonry({
+         itemSelector: '.box',
+         columnWidth: 100
+       });
+     });
+
+  $container.masonry({
+       itemSelector : '.box',
+      isAnimated: true
+   });
+
+  $container.infinitescroll(
+    {
+      navSelector  : '#page-nav',    // selector for the paged navigation
+      nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
+      itemSelector : '.box',     // selector for all items you'll retrieve
+      animate      : true,
+      debug        : true,
+      loadingText  : "loading..."
+    },
+
+    function( newElements ) {
+      var $newElems = $( newElements ).css({ opacity: 0 });
+      $newElems.animate({ opacity: 1 });
+      $container.masonry( 'appended', $newElems, true );
+    }
+  );
+
+
+
+});
+

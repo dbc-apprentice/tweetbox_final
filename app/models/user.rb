@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   include TwitterClient
   attr_accessible :auth_secret, :auth_token, :image_url, :name, :twitter_name, :uid
   has_many :tweets
+  has_many :hashtags, :through => :tweets
 
   def self.create_with_omniauth(auth)
     create! do |user|

@@ -15,7 +15,7 @@
     .nine.columns
       - if current_user
         .twitter_handle
-          = current_user.twitter_name
+          = "@#{current_user.twitter_name}'s"
       .main_header
         = "tweetbox"
   .row

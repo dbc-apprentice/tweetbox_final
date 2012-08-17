@@ -20,10 +20,9 @@
   .row
     .two.columns
       .photo
-        = image_tag @user.image_url
-        = image_tag @user.image_url
-        = image_tag @user.image_url
-        = image_tag @user.image_url
+        - user_image = @user.image_url
+        - 4.times do 
+          = image_tag user_image
       - user_tweets = []
       - user_urls = []
       - @hashtags.each do |hashtag, num|

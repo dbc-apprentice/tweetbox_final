@@ -35,5 +35,3 @@
           .box
             .tweets.clearfix
               = link_to CGI.unescape(tweet.text), tweet.links.first.url
-%nav#page-nav
-  %a{href: "/#{@user.twitter_name}?page=2"}

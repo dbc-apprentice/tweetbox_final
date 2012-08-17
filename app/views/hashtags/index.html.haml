@@ -14,18 +14,10 @@
   .row
     .nine.columns
       .twitter_handle
-        ="@" + @user.twitter_name.upcase + "'s"
       .main_header
         = "tweetbox"
   .row
     .two.columns
-      .photo
-        = image_tag @user.image_url
-        = image_tag @user.image_url
-        = image_tag @user.image_url
-        = image_tag @user.image_url
-      - user_tweets = []
-      - user_urls = []
 
       .kbutton
         = link_to "\##{@hashtag.text.upcase}" #link to page with all tags
@@ -35,5 +27,3 @@
           .box
             .tweets.clearfix
               = link_to CGI.unescape(tweet.text), tweet.links.first.url
-%nav#page-nav
-  %a{href: "/#{@user.twitter_name}?page=2"}
